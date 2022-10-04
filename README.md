@@ -1,5 +1,4 @@
 # TrendSU-Cloth-Shop
-## CS308 Software Engineering course project in Sabancı University
 
 ### A full stack application with Django and Bootstrap
 
