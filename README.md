@@ -32,6 +32,8 @@ such a case, the customer will select an already purchased product from his/her 
 history within 30 days of purchase.
 
 
+
+
 Functionalities of Product Managers: 
 * The product managers shall add/remove products as well as product categories, and
 manage the stocks. Everything related to stock shall be done by the product manager.
@@ -41,6 +43,8 @@ the corresponding addresses for delivery. A delivery list has the following prop
 delivery ID, customer ID, product ID, quantity, total price, delivery address, and a field
 showing whether the delivery has been completed or not. Last but not least, the product
 managers shall approve or disapprove the comments. 
+
+
 
 
 Functionalities of Sales Managers: 
