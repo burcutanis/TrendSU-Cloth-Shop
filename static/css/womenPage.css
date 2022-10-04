@@ -1,0 +1,209 @@
+ /* .group {
+  max-width: 100%;
+  max-height: 100%;
+  padding: 20px 10px 0px 10px;
+} */
+ .product_text {
+   position: relative;
+       left: 15px;
+       bottom: 1rem;
+       color: #ffff;
+       font-weight: bold;
+       background-color: #cccccc;
+       max-width: 89%;
+
+       padding-top: 2px;
+       text-align: center;
+ }
+
+
+/** main section image ***/
+ .woman-main-section .main-image2 {
+   max-width: 100%;
+   max-height: 100%;
+   padding: 0 60px 0 60px;
+ }
+
+ .woman-main-section .main-image3 {
+   max-width: 100%;
+   max-height: 100%;
+   padding: 0 60px 0 60px;
+ }
+
+ .woman-main-section .main-image {
+   max-width: 100%;
+   max-height: 100%;
+   padding: 40px 60px 0 60px;
+ }
+
+ .woman-main-section .main-image4 {
+   max-width: 100%;
+   max-height: 100%;
+   padding: 0 60px 0 60px;
+ }
+
+
+ /* woman-clothing-section */
+ .woman-clothing-section {
+   margin: 0 60px 0;
+   padding: 30px 30px 0;
+   background-color: #EFEFEF;
+   /* #EFFFFD; */
+   text-align: center;
+ }
+
+ .woman-clothing-section .woman-title1 {
+   padding: 25px 1px 10px;
+   font-size: 2.5rem;
+   color: grey;
+   font-weight: bold;
+   text-align: center;
+ }
+
+ .woman-clothing-section .row {
+   padding: 2px 2px 2px;
+ }
+
+ .woman-clothing-section .dress-card1 {
+   padding: 2px 2px 10px;
+   margin-top: 2px;
+   text-align: center;
+   font-size: 1rem;
+   color: grey;
+ }
+
+ .woman-clothing-section .dress-image1 {
+   max-width: 100%;
+   max-height: 100%;
+   padding: 20px 15px 0px 15px;
+ }
+
+ /* woman-shoes-section */
+ .woman-shoes-section {
+   margin: 0 60px 0;
+   padding: 30px 30px 0px;
+   background-color: #EFEFEF;
+   text-align: center;
+ }
+
+ .woman-shoes-section .woman-title1 {
+   padding: 25px 1px 10px;
+   font-size: 2.5rem;
+   color: grey;
+   font-weight: bold;
+   text-align: center;
+ }
+
+ .woman-shoes-section .row {
+   padding: 2px 2px 2px;
+ }
+
+ .woman-shoes-section .shoes-card1 {
+   padding: 2px 2px 10px;
+   margin-top: 2px;
+   text-align: center;
+   font-size: 1rem;
+   color: grey;
+
+ }
+
+ .woman-shoes-section .shoes-image1 {
+   max-width: 100%;
+   max-height: 100%;
+   padding: 20px 15px 0px 15px;
+ }
+
+ /* woman-bags-section */
+ .woman-bags-section {
+   margin: 0 60px 0;
+   padding: 30px 30px 0;
+   background-color: #EFEFEF;
+   text-align: center;
+ }
+
+ .woman-bags-section .woman-title1 {
+   padding: 25px 1px 10px;
+   font-size: 2.5rem;
+   color: grey;
+   font-weight: bold;
+   text-align: center;
+ }
+
+ .woman-bags-section .row {
+   padding: 2px 2px 2px;
+ }
+
+ .woman-bags-section .bags-card1 {
+   padding: 2px 2px 10px;
+   margin-top: 2px;
+   text-align: center;
+   font-size: 1rem;
+   color: grey;
+
+ }
+
+ .woman-bags-section .bags-image1 {
+   max-width: 100%;
+   max-height: 100%;
+   padding: 20px 15px 0px 15px;
+ }
+
+ /* woman-cosmetic-section */
+ .woman-cosmetic-section {
+   margin: 0 60px 0;
+   padding: 30px 30px 0;
+   /*  background-color: #FEE3EC; */
+   background-color: #EFEFEF;
+   text-align: center;
+ }
+
+ .woman-cosmetic-section .woman-title1 {
+   padding: 25px 1px 10px;
+   font-size: 2.5rem;
+   color: grey;
+   font-weight: bold;
+   text-align: center;
+ }
+
+ .woman-cosmetic-section .row {
+   padding: 2px 2px 2px;
+ }
+
+ .woman-cosmetic-section .cosm-card1 {
+   padding: 2px 2px 10px;
+   margin-top: 2px;
+   text-align: center;
+   font-size: 1rem;
+   color: grey;
+
+ }
+
+ .woman-cosmetic-section .cosm-image1 {
+   max-width: 100%;
+   max-height: 100%;
+   padding: 20px 15px 0px 15px;
+ }
+
+
+ /* Footer Section */
+
+
+.social-icon {
+  margin: 20px 10px;
+}
+#footer {
+  text-align: center;
+  padding: 50px 0 20px;
+}
+
+@media (max-width: 1028px) {
+
+#footer {
+  text-align: center;
+}
+
+  .title-image {
+    position: static;
+    transform: rotate(0);
+  }
+}

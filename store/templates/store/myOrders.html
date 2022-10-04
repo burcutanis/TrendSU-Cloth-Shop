@@ -1,0 +1,122 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+
+
+
+{% block content_SideBar-order %}
+<div class="sidebar">
+  <a class="" href="{% url 'store:myOrders' %}">My Orders</a>
+  <a href="{% url 'store:myRatingsEvaluated' %}">My ratings</a>
+  <a href="{% url 'store:myProfile' %}">My User Information</a>
+
+</div>
+{% endblock %}
+
+{% block order-page %}
+{% for ord in orders %}
+<div class="card order-card">
+  <h5 class="card-header">
+    <div class="row">
+
+      <div class="date col-2">
+        <p class="order-text">Order ID</p>
+        <div class="row">
+          <div class="col-12">
+            <p class="order-info">#ORDER_{{ord.id}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="date col-2">
+        <p class="order-text">Order Date</p>
+        <div class="row">
+          <div class="col-12">
+            <p class="order-info">{{ord.created_at}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="cost col-2">
+        <p class="order-text">Total Cost</p>
+        <div class="row">
+          <div class="col-12">
+            <p class="order-info">{{ord.total}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="purchaser col-2">
+        <div class="row">
+          <div class="col-12">
+            <p class="order-text">Order Status</p>
+            {% if ord.checkCanceled %}
+            <p class="order-info">Order Canceled</p>
+            {% elif ord.IfAllDelivered%}
+            <p class="order-info">Order Delivered</p>
+            {% elif ord.checkIfAllReceived%}
+            <p class="order-info">Order Received</p>
+            {% elif ord.checkIfProcessing%}
+            <p class="order-info">Order processing</p>
+            {% elif ord.checkIfinTransit%}
+            <p class="order-info">Order in transit</p>
+            {% else %}
+            <p class="order-info">Order returned/delivered</p>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div>
+      <a href="{% url 'store:customerorderdetail' ord.pk %}" class="btn btn-info order_details_button">Order Details</a>
+
+      {% if ord.checkCanceled %}
+      <div class="row">
+        <div class="col-6">
+          <a href="{% url 'store:cancelOrder' ord.pk %}" class="btn btn-danger disabled"
+              style="position: relative;width: 320px;">Order was cancelled and {{ord.total}} was returned</a>
+        </div>
+        <div class="col-6">
+          <a href="{% url 'store:receipt' ord.pk %}" class="btn btn-info "
+            style="position: relative;left: 240px;width: 200px;">View Receipt</a>
+        </div>
+
+      </div>
+
+
+
+      {%else %}
+        {% if ord.checkIfAllReceived%}
+      <div class="row">
+        <div class="col-6">
+          <a href="{% url 'store:cancelOrder' ord.pk %}" class="btn btn-danger"
+              style="position: relative;width: 200px;">Cancel</a>
+        </div>
+        <div class="col-6">
+          <a href="{% url 'store:receipt' ord.pk %}" class="btn btn-info "
+            style="position: relative;left: 240px;width: 200px;">View Receipt</a>
+        </div>
+      </div>
+      {% else %}
+      <div class="row">
+        <div class="col-6">
+          <a href="{% url 'store:cancelOrder' ord.pk %}" class="btn btn-danger disabled"
+              style="position: relative;width: 320px;">Order cannot be cancelled in this status</a>
+        </div>
+        <div class="col-6">
+          <a href="{% url 'store:receipt' ord.pk %}" class="btn btn-info "
+            style="position: relative;left: 240px;width: 200px;">View Receipt</a>
+        </div>
+      </div>
+      {% endif %}
+    {% endif %}
+
+
+    </div>
+
+
+
+  </h5>
+</div>
+{% endfor %}
+
+{% endblock %}

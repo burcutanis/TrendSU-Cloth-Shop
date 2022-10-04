@@ -1,0 +1,106 @@
+{% extends 'store/womenNavbar.html' %}
+{% load static %}
+
+
+
+
+{% block content_SideBar %}
+
+<div class="sidebar flex-shrink-0 p-3 bg-white">
+  <a href="/" class="women_sidebar_text d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+    <!-- <svg class="bi me-2" width="0" height="0"><use xlink:href="#bootstrap"></use></svg> -->
+    <span class=" fs-5 fw-semibold">Women</span>
+  </a>
+  <ul class="sidebar_body list-unstyled ps-0" style: "height: 100%;">
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+        Size
+      </button>
+      <div class="collapse" id="orders-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <form action=>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+            <label for="vehicle1"> XXS</label><br>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+            <label for="vehicle1"> XS</label><br>
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+            <label for="vehicle2"> XS/S </label><br>
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+            <label for="vehicle2"> S </label><br>
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+            <label for="vehicle2"> S/M </label><br>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle2"> M</label><br>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle2"> M/L</label><br>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle2"> L</label><br>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle2"> L/XL</label><br>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle2"> XL</label><br>
+          </form>
+        </ul>
+      </div>
+    </li>
+    <li class="border-top my-3"></li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+        Price
+      </button>
+      <div class="collapse" id="account-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <form action=>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+            <label for="vehicle1"> 0 EUR - 10 EUR</label><br>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+            <label for="vehicle1"> 10 EUR - 20 EUR</label><br>
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+            <label for="vehicle2"> 20 EUR - 30 EUR</label><br>
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+            <label for="vehicle2"> 30 EUR - 40 EUR </label><br>
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+            <label for="vehicle2"> 40 EUR - 50 EUR </label><br>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle2"> 50 EUR - 100 EUR</label><br>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle2"> 100 EUR - 250 EUR</label><br>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle2"> 250+ EUR</label><br>
+          </form>
+        </ul>
+      </div>
+    </li>
+    <li class="border-top my-3"></li>
+
+  </ul>
+</div>
+
+
+{% endblock %}
+
+{% block content_Page %}
+
+
+<section>
+
+  <div class="wtitle1">
+    <h2> Women Sweatshirts </h2>
+  </div>
+  <div class="row">
+    {% for item in response %}
+    <div class="col-lg-3">
+         <a href="../productDetail/{{ item.slug }}">
+         <img src= ../..{{item.Primaryimage}} alt="Dress1 alternative" class="dress">
+         </a>
+        <a href="../productDetail/{{ item.slug }}">
+         <p class="dress_text"> {{item.name}}
+        </a>
+      <br>
+      Price: <span class="price">{{item.price}}</span>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock  %}

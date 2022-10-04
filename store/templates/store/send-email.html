@@ -1,0 +1,46 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content_mainPage%}
+<!--
+<form action="" method="POST">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit"/>
+</form> -->
+
+
+<div class="col-lg-4 block-border">
+    <form action="/store/send_mail_plain_with_file/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="control-label">
+                Email :
+            </label>
+            <input type="text" name="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label class="control-label">
+                Subject :
+            </label>
+            <input type="text" name="subject" class="form-control">
+        </div>
+        <div class="form-group">
+            <label class="control-label">
+                Message :
+            </label>
+            <textarea name="message" class="form-control" rows="5"></textarea>
+        </div>
+        <!-- <div class="form-group">
+            <label class="control-label">
+                File :
+            </label>
+            <input type="file" name="file" class="form-control">
+        </div> -->
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Send Mail With File</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

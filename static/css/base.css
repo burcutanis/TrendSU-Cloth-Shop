@@ -1,0 +1,92 @@
+/* Navigation Bar */
+
+.trendSU2 {
+ width: 30px;
+ height: 30px;
+}
+
+.SU {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.trend {
+  font-weight: bold;
+}
+.top {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 20px;
+  border-bottom: 2px;
+}
+
+
+.right-items {
+  margin: 0px 5px;
+}
+
+.my_account {
+  margin: 15px 0;
+}
+
+
+ /* Place of the search bar */
+.d-flex {
+padding-left: 30px;
+
+}
+
+.secondNav {
+  width: 100%;
+}
+
+/* .form-control {
+  width: 350px;
+} */
+
+.search_btn {
+  width: 100px;
+}
+
+.navbar-brand {
+  font-size: 25px;
+  padding-left: 15px;
+}
+
+.gender_nav {
+  margin: 0px 10px;
+}
+
+
+
+.my_account {
+  margin: 15px 0;
+}
+
+
+
+
+.main_img1 {
+  margin-left: 40px;
+  margin-top: 100px;
+  margin-right: 0px;
+  padding-right: 0px;
+  height: 70%;
+  weight: 20%;
+}
+
+.main_img2 {
+  padding-left: 0px;
+  margin-right: 40px;
+  margin-top: 100px;
+  margin-left: 0px;
+  height: 70%;
+  weight: 20%;
+}
+
+.main_img {
+  padding-top: 50px;
+  width: 1100px;
+  height: 450.469px;
+  margin-left: 100px;
+}

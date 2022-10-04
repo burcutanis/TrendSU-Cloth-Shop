@@ -1,0 +1,124 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content_Basket %}
+
+
+<div class="">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+<section class="h-100 h-custom">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100" style ="padding-left: 0px;margin-right: 0px;margin-left: 0px;position: relative;right: 15px;bottom: 35px;">
+      <div class="col">
+        <div class="card shopping-cart" style="border-radius: 15px;">
+          <div class="card-body text-black">
+            <h5 class="fw-bold mb-5" >
+              <a href="{% url 'store:womenPage' %}"><i class="fas fa-angle-left me-2"></i>Back to shopping</a>
+            </h5>
+
+
+            <div class="row">
+
+
+              <div class="col-lg-9 px-5 py-4 mx-auto">
+
+
+                <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your products</h3>
+
+              {% for cp in cart.cartproduct_set.all %}
+
+                <div class="d-flex align-items-center mb-5">
+                  <div class="flex-shrink-0">
+
+                    <img src="{{cp.product.Primaryimage.url}}"
+                      class="img-fluid" style="width: 100px;" alt="Generic placeholder image">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <a href= "{% url 'store:managecart' cp.id %}?action=rmv" class="float-end text-black"><i class="fas fa-times"></i></a>
+                    <h5 class="text-primary"> {{cp.product.name}}  </h5>
+
+                    <div class="d-flex align-items-center">
+                      <p class="fw-bold mb-0 me-5 pe-3">${{cp.subtotal}}</p>
+
+                      <div class="def-number-input number-input safari_only">
+
+                         <a href="{% url 'store:managecart' cp.id%}?action=dcr" role= "button" <i class="fas fa-minus"></i>
+                         </a>
+                          {{cp.quantity}}
+                          {% if cp.quantity == 0 %}
+                          <i class="fas fa-plus"></i>
+
+                          {% else %}
+                          <a href="{% url 'store:managecart' cp.id %}?action=inc" role= "button" <i class="fas fa-plus"></i>
+                          </a>
+                          {% endif %}
+
+
+                      </div>
+                          <p>distributor: {{cp.product.distributor}}</p>
+                    </div>
+                  </div>
+                </div>
+
+
+                {% endfor %}
+
+
+                <hr class="mb-4" style="height: 2px; background-color: #1266f1; opacity: 1;">
+
+                <!-- <div class="d-flex justify-content-between px-x">
+                  <p class="fw-bold">Discount:</p>
+                  <p class="fw-bold">95$</p>
+                </div> -->
+                <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #e1f5fe;">
+                  <h5 class="fw-bold mb-0">Total:</h5>
+                  <h5 class="fw-bold mb-0">${{cart.total}}</h5>
+                </div>
+
+
+              </div>
+
+          </div>
+          {% if cart.cartproduct_set.all %}
+            <tr>
+              <a href="{% url 'store:checkout' %}" role ="button" class ="btn btn-warning float-right btn-lg proceed_to_buy_button" style="position: relative;right: 150px; margin: 20px 0;">Checkout</a>
+
+
+            </tr>
+          {% endif %}
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock  %}

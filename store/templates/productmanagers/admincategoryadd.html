@@ -1,0 +1,33 @@
+{% extends 'productmanagers/adminBase.html' %}
+
+
+
+{% block content_mainPage %}
+
+<div class="container wow fadeIn">
+  <h2 class="my-5 h2 text-center">Category Add Form</h2>
+  <div class="row">
+    <div class="col-md-6 mb-4 checkout_card mx-auto">
+      <div class="card">
+        <form method="POST" action="." class="card-body"   enctype="multipart/form-data">
+
+          {% csrf_token %}
+          {{form.as_p}}
+
+
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Add category</button>
+
+          </form>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-4 mb-4">
+
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

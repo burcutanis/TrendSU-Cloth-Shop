@@ -1,0 +1,27 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content_SideBar-order %}
+<div class="sidebar">
+  <a class="" href="{% url 'store:myOrders' %}">My Orders</a>
+  <a href="{% url 'store:myRatingsEvaluated' %}">My ratings</a>
+  <a href="{% url 'store:myProfile' %}">My User Information</a>
+
+</div>
+{% endblock %}
+
+{% block order-page %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Detail Information</h3><hr>
+            <p><span class="font-weight-bold">Name: </span> {{customer.full_name}}</p>
+            <p><span class="font-weight-bold">Username: </span> {{customer.user.username}}</p>
+            <p><span class="font-weight-bold">Email: </span> {{customer.user.email}}</p>
+            <p><span class="font-weight-bold">Address: </span> {{customer.address}}</p>
+            <p><span class="font-weight-bold">Joined on: </span> {{customer.joined_on}}</p>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

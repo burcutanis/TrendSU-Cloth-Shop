@@ -1,0 +1,25 @@
+{% extends 'store/womenNavbar.html' %}
+{% load static %}
+
+{% block content_AllPage %}
+<div class="container">
+    <div class="row">
+        <h3>Search Results for <span class="text-info">"{{request.GET.keyword}}"</span></h3>
+       <div class="row">
+        {% for result in results %}
+        <div class="col-lg-3">
+             <a href="../productDetail/{{ result.slug }}">
+             <img src= ../..{{result.Primaryimage.url}} alt="Dress1 alternative" class="dress">
+             </a>
+            <a href="../productDetail/{{ result.slug }}">
+             <p class="dress_text"> {{result.name}}
+            </a>
+          <br>
+          Price: <span class="price">{{result.price}}</span>
+          Popularity: <span class="price">{{result.popularity}}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+</div>
+{% endblock %}

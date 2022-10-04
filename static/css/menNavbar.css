@@ -1,0 +1,81 @@
+/* Navigation Bar */
+.trendSU2 {
+ width: 30px;
+ height: 30px;
+}
+
+.SU {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.trend {
+  font-weight: bold;
+}
+
+.top {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 20px;
+  border-bottom: 2px;
+}
+
+
+.right-items {
+  margin: 0px 5px;
+}
+
+.my_account {
+  margin: 15px 0;
+}
+
+
+ /* Place of the search bar */
+.d-flex {
+padding-left: 30px;
+
+}
+
+.secondNav {
+  width: 100%;
+}
+
+.form-control {
+  width: 350px;
+}
+
+.search_btn {
+  width: 100px;
+}
+
+.navbar-brand {
+  font-size: 25px;
+  padding-left: 15px;
+}
+
+.gender_nav {
+  margin: 0px 10px;
+}
+
+
+
+/* Men Navigation Bar */
+
+.second_navbar_men {
+  padding-top: 0px;
+}
+
+.men_li {
+  margin: 0px 20px;
+}
+
+.men_dropdown {
+  width: 450px;
+  height: 200px;
+}
+
+.men_navbar_cont {
+  border-top: solid #d5d9d0;
+  border-top-width: 0.5px;
+
+}

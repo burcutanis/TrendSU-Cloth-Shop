@@ -1,0 +1,45 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+
+
+
+{% block content_SideBar-order %}
+<div class="sidebar">
+  <a class="" href="{% url 'store:myOrders' %}">My Orders</a>
+  <a href="{% url 'store:myRatingsEvaluated' %}">My ratings</a>
+  <a href="{% url 'store:myProfile' %}">My User Information</a>
+
+</div>
+{% endblock %}
+
+{% block order-page %}
+
+<div class="card text-center">
+
+  <div class="card-body">
+
+    <div class="row rating-row">
+        {% for review in reviewlist.reviewitem_set.all %}
+      <div class="col-6">
+        <div class="card" style="margin-top: 20px;">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 rating-picture-div">
+                <img src="{{ review.product.Primaryimage.url }}" alt="Backpack4 alternative" class="picture-evaluated">
+            </div>
+            <div class="col-6 col-md*6 rate-product-info">
+                <p class="evaluated-product-name">{{ review.product.name }}</p>
+                <div class="card comment-evaluated ">
+                    <p class=comments-text>{{review.comment}}</p>
+                </div>
+                <p class="evaluated-product-name">Rate: {{ review.rate }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+{% endblock %}

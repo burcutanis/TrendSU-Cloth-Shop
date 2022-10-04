@@ -1,0 +1,59 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content_mainPage %}
+
+{% if registered %}
+<h1>thank you</h1>
+{% else %}
+
+      <div class="row register-row">
+        <div class="col-lg-4">
+        </div>
+        <div class=" register_div col-lg-4 register-card1">
+          <div class="Register_Box">
+            <form action= "" method="post">
+              {% csrf_token %}
+              <h1>Register</h1>
+              <hr class="Register_Line">
+
+              <h6>Username</h6>
+              <div class="Reg_Username_Field">
+                <div class="form-group">
+
+                  <input type="text" name="username" class="form-control" maxlength="150" required="" id="id_username">
+                  <!-- {{user_form.username}} -->
+                </div>
+              </div>
+
+              <h6>Email</h6>
+              <div class="Reg_Email_Field">
+                <div class="form-group">
+                  <input type="email" name="email" class="form-control" maxlength="254" id="id_email">
+                    <!-- {{ user_form.email}} -->
+                </div>
+              </div>
+
+              <h6>Password</h6>
+              <div class="Reg_Password_Field">
+                <div class="form-group">
+                  <input type="password" name="password" class="form-control" required="" id="id_password">
+                      <!-- {{ user_form.password}} -->
+
+                </div>
+              </div>
+
+              <p>Already have an account? <a href="{% url 'store:user_login' %}">Login here</a>.</p>
+
+              <div class="Reg_Button">
+                <div class="register_Button d-grid gap-2 col-12 mx-auto">
+                  <input type="submit" class="btn btn-primary btn-lg" name="" value="Register">
+
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+{% endif %}
+
+{% endblock  %}

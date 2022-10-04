@@ -1,0 +1,40 @@
+{% extends 'productmanagers/adminBase.html' %}
+
+
+
+{% block content_mainPage %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Pending Orders for distributor: {{ distributor.name }} </h3><hr>
+            <table class="table table-striped table-hover">
+                <thead >
+                    <tr>
+                      <th>SN</th>
+                      <th>Order Product ID </th>
+                      <th>Order ID </th>
+                      <th>Customer</th>
+                      <th>Ordered On</th>
+                      <th>Total Cost</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for orderProduct in pendingorders %}
+                    <tr>
+                      <td>{{forloop.counter}}</td>
+                      <td><a href="{% url 'store:adminorderdetail' orderProduct.id %}">Order Product {{orderProduct.id}}</a></td>
+                      <td>{{orderProduct.order.id}}</td>
+                      <td>{{orderProduct.order.customer.user.username}}</td>
+                      <td>{{orderProduct.order.created_at}}</td>
+                      <td>{{orderProduct.price}} TL</td>
+
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

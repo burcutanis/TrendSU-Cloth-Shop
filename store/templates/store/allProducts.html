@@ -1,0 +1,40 @@
+{% extends 'store/womenNavbar.html' %}
+{% load static %}
+
+
+
+
+
+{% block content_AllPage %}
+<div class="container">
+  <div class="wtitle1">
+    <h2> All Products Page </h2>
+  </div>
+
+
+
+  <div class="row">
+    {% for item in object_list %}
+    <div class="col-lg-3">
+         <a href="{{item.get_absolute_url}}">
+         <img src= {{item.Primaryimage.url}} alt="Dress1 alternative" class="dress">
+         </a>
+
+        <a href="{{item.get_absolute_url}}">
+         <p class="dress_text"> {{item.name}}
+        </a>
+      <br>
+
+      Price: <span class="price">${{item.price}}</span>
+
+
+
+
+    </div>
+    {% endfor %}
+  </div>
+
+
+</div>
+
+{% endblock  %}

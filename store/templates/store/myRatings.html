@@ -1,0 +1,191 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+
+
+
+{% block content_SideBar-order %}
+<div class="sidebar">
+  <a class="" href="{% url 'store:myOrders' %}">My Orders</a>
+  <a href="{% url 'store:myRatings' %}">My ratings</a>
+  <a href="{% url 'store:myProfile' %}">My User Information</a>
+
+</div>
+{% endblock %}
+
+{% block order-page %}
+
+
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'store:myRatings' %}">Evaluate</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'store:myRatingsEvaluated' %}">Evaluated</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+
+    <div class="row rating-row">
+      <div class="col-6">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 rating-picture-div">
+              <img src="{% static "images/women/bags/backpack3.jpg"  %}" alt="Backpack4 alternative" class="rate-picture">
+            </div>
+            <div class="col-6 col-md*6 rate-product-info">
+              <p class="evaluate-product-name">Name of the product</p>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Rate the product
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 rating-picture-div">
+              <img src="{% static "images/women/bags/backpack2.jpg"  %}" alt="Backpack4 alternative" class="rate-picture">
+            </div>
+            <div class="col-6 col-md*6 rate-product-info">
+              <p class="evaluate-product-name">Name of the product</p>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Rate the product
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row rating-row">
+      <div class="col-6">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 rating-picture-div">
+              <img src="{% static "images/women/bags/backpack4.jpg"  %}" alt="Backpack4 alternative" class="rate-picture">
+            </div>
+            <div class="col-6 col-md*6 rate-product-info">
+             <p class="evaluate-product-name">Name of the product</p>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Rate the product
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 rating-picture-div">
+              <img src="{% static "images/women/bags/backpack1.jpg"  %}" alt="Backpack4 alternative" class="rate-picture">
+            </div>
+            <div class="col-6 col-md*6 rate-product-info">
+              <p class="evaluate-product-name">Name of the product</p>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Rate the product
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title rate-modal-title" >How did you find the product?</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12 rating-picture-div">
+            <img src="{% static "images/women/bags/backpack4.jpg"  %}" alt="Backpack4 alternative" class="rate-picture-modal">
+          </div>
+          <div class="col-6 col-md*6 rate-product-info-modal">
+            <p class="evaluated-product-name">Name of the product</p>
+            <div class="card rating-card">
+              <div class="card-body text-center">
+                <fieldset class="rating">
+                  <input type="radio" id="star5" name="rating" value="5" />
+                  <label class="full" for="star5" title="Awesome - 5 stars"></label>
+
+                  <input type="radio" id="star4" name="rating" value="4" />
+                  <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+
+                  <input type="radio" id="star3" name="rating" value="3" />
+                  <label class="full" for="star3" title="Meh - 3 stars"></label>
+
+                  <input type="radio" id="star2" name="rating" value="2" />
+                  <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+
+                  <input type="radio" id="star1" name="rating" value="1" />
+                  <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+
+                  <input type="radio" class="reset-option" name="rating" value="reset" />
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <form class = comment-form action="">
+            <p><label for="comment">Your comment:</label></p>
+            <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+            <br>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Make comment </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+  $('#myModal').on('shown.bs.modal', function() {
+    $('#myInput').trigger('focus')
+  })
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("input[type='radio']").click(function() {
+      var sim = $("input[type='radio']:checked").val();
+      //alert(sim);
+      if (sim < 3) {
+        $('.myratings').css('color', 'red');
+        $(".myratings").text(sim);
+      } else {
+        $('.myratings').css('color', 'green');
+        $(".myratings").text(sim);
+      }
+    });
+  });
+</script>
+
+{% endblock %}

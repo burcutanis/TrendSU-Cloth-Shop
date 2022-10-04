@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="track.css">
+</head>
+
+<body>
+  <div class="container px-1 px-md-4 py-5 mx-auto">
+    <div class="card">
+  <!-- Add class 'active' to progress -->
+
+   <div class="col-12">
+                <ul id="progressbar" class="text-center">
+                    <li class="active step0"></li>
+                    <li class="active step0"></li>
+
+                    <li class="step0"></li>
+                </ul>
+            </div>
+
+        <div class="row justify-content-between top">
+            <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
+                <div class="d-flex flex-column">
+                    <p class="font-weight-bold">Processing</p>
+                </div>
+            </div>
+            <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                <div class="d-flex flex-column">
+                    <p class="font-weight-bold">In transit</p>
+                </div>
+            </div>
+            <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                <div class="d-flex flex-column">
+                    <p class="font-weight-bold">Delivered</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+  <div class="row px-3">
+    <div class="col">
+      <ul id="progressbar">
+        <li class="step0 active " id="step1">PLACED</li>
+        <li class="step0 active text-center" id="step2">SHIPPED</li>
+        <li class="step0 text-muted text-right" id="step3">DELIVERED</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>

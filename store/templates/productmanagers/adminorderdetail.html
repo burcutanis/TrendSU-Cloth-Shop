@@ -1,0 +1,144 @@
+{% extends 'productmanagers/adminBase.html' %}
+{% load static %}
+
+{% block content_mainPage %}
+<div class="container" style = "margin-bottom: 200px;">
+
+    <div class="row">
+        <div class="col-md-9 mx-auto">
+
+
+            <h3>Order Detail</h3>
+            <hr>
+            <div class="card order-card mx-auto">
+              <h5 class="card-header">
+                <div class="row">
+
+                  <div class="date col-3">
+                    <p class="order-text">Delivery ID</p>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="order-info">Delivery {{ord_obj.id}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="date col-3">
+                    <p class="order-text">Order Date</p>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="order-info">{{ord_obj.order.created_at}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="purchaser col-3">
+                    <p class="order-text">Order Status</p>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="order-info">{{ord_obj.order_status}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cost col-3">
+                    <p class="order-text">Customer ID</p>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="order-info">{{ord_obj.order.customer.id}}</p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+                <div class="row" style="padding-top: 20px;">
+                  <div class="cost col-3">
+                    <p class="order-text">Ordered By</p>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="order-info">{{ord_obj.order.customer.user.username}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cost col-3">
+                    <p class="order-text">Total Cost</p>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="order-info">{{ord_obj.price}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cost col-3">
+                    <p class="order-text">Delivery Address</p>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="order-info">{{ord_obj.order.shipping_address}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cost col-3">
+                    <p class="order-text">Refund Request</p>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="order-info">{{ord_obj.refund_requested}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </h5>
+              </div>
+
+            <h4>Ordered Items</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                          <td>{{ord_obj.product.id}}</td>
+                        <td><a target="_blank"
+                                href="{% url 'store:productDetail' ord_obj.product.slug %}">{{ord_obj.product.name}}</a>
+                        </td>
+                        <td>{{ord_obj.price}}TL</td>
+                        <td>{{ord_obj.quantity}}</td>
+                        <td>{{ord_obj.subtotal}}TL</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            {% if ord_obj.refund_requested == False and ord_obj.order_status != "Order delivered" and ord_obj.order_status != "Order Cancelled"%}
+              <form action="{% url 'store:adminorderstatuschange' ord_obj.id %}" method="POST">
+                  {% csrf_token %}
+                  <select name="status" class= "form-control col-3">
+                      {% for i, j in allstatus %}
+                        {% if i != "Order Cancelled" %}
+                          {% if i != "Order Returned" %}
+                          <option value="{{i}}" {% if i == ord_obj.order_status %}selected{% endif %}>{{j}}</option>
+                          {% endif %}
+                      {% endif %}
+                      {% endfor %}
+                  </select>
+                  <button class="btn btn-info" style = "margin-top:20px;">Change</button>
+
+              </form>
+            {%endif %}
+            <div class="col-lg-12" style="margin-bottom: 20px; padding-right:0;margin-top: 10px;">
+              {% if ord_obj.refund_requested == False%}
+
+
+              {% elif ord_obj.refund_requested == True and ord_obj.refund_granted == False%}
+                <a href="{% url 'store:grant-refund' ord_obj.pk %}" class="btn btn-info ">Grant Refund to the customer</a>
+
+
+              {% else%}
+
+                <h4>Total of {{ord_obj.subtotal}} is refunded to customer's account.</h4>
+              {%endif %}
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

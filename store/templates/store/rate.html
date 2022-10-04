@@ -1,0 +1,60 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content_mainPage %}
+
+
+<div class="">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<form method="POST" action="." class="card-body">
+
+  {% csrf_token %}
+
+
+  <div class="container wow fadeIn">
+
+    <div class="row">
+      <div class="col-md-6 mb-4 mx-auto">
+        <div class="card">
+          <h2 class="my-5 h2 text-center">Review Product Form</h2>
+
+          <hr>
+          <div class="md-form mb-5">
+
+            <label for="ordered_by" class="">Comment</label>
+            <input type="text" name="comment" maxlength="100" required="" id="id_comment" class='form-control'>
+          </div>
+
+          <div class="md-form mb-5">
+
+            <label for="ordered_by" class="">Rate</label>
+            <input type="number" name="rate" min="0" id="id_rate" class='form-control'>
+          </div>
+
+
+
+
+          <hr class="mb-4">
+          <button class="btn btn-primary btn-block" type="submit">Submit comment</button>
+          <!-- <a href="{% url 'store:payment' %}" role="button" class="btn btn-primary btn-lg btn-block" type="submit">Checkout</a> -->
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</form>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'productmanagers/adminBase.html' %}
+
+
+
+{% block content_mainPage %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>All Product list for distributor: {{ distributor.name }} </h3><hr>
+
+            <a href="{% url 'store:adminproductcreate' %}">Add New Product</a>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Title</th>
+                        <th>Category</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Quantity in Stock</th>
+                        <th>Delete</th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in results %}
+                    <tr>
+                        <td>{{p.id}}</td>
+                        <td>{{p.name}}</td>
+                        <td>{{p.category}}</td>
+                        <td><img src= {{p.Primaryimage.url}} style="height: 60px;" alt=""></td>
+                        <td>{{p.price}}</td>
+                        <td>{{p.quantity}}  <a href= "{% url 'store:product_managers_stock' p.id %}">Change Stock</a></td>
+                        <td><a href= "{% url 'store:adminproductdelete' p.id %}?action=delete" class="float-end text-black"><i class="fas fa-times"></i></a></td>
+
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

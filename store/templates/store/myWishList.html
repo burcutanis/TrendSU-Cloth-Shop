@@ -1,0 +1,73 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content_mainPage %}
+
+
+<div class="">
+	<div class="container">
+		<h5 class="fw-bold">
+			<a href="{% url 'store:womenPage' %}"><i class="fas fa-angle-left me-2"></i>Back to shopping</a>
+		</h5>
+
+
+		<div class="row">
+			<div class="col-md-12">
+				<!-- <div class="main-heading mb-10  ">Your Wish List</div> -->
+				<h2 class="mb-5 pt-2 text-center fw-bold   ">Your Wish List</h2>
+
+				<div class="table-wishlist">
+					<table cellpadding="0" cellspacing="0" border="0" width="100%">
+						<thead>
+							<tr>
+								<th width="45%">Product Name</th>
+								<th width="15%">Unit Price</th>
+								<th width="15%">Stock Status</th>
+								<th width="15%"></th>
+								<th width="10%"></th>
+							</tr>
+						</thead>
+
+						{% for wishobj in wishlist.wishitem_set.all %}
+						<tbody>
+							<tr>
+								<td width="45%">
+									<div class="display-flex align-center">
+										<div class="img-product">
+											<img src="{{wishobj.product.Primaryimage.url}}" alt=" a" class="mCS_img_loaded">
+										</div>
+										<div class="name-product">
+											{{wishobj.product.name}}
+										</div>
+									</div>
+								</td>
+								<td width="15%" class="price"> {{wishobj.product.price}}</td>
+								<td width="15%"><span class="in-stock-box">
+										{{wishobj.product.quantity}}
+									</span></td>
+
+								<!-- <td width="15%"><button class="round-black-btn small-btn">Add to Cart</button></td> -->
+
+								{% if wishobj.product.quantity == 0 %}
+								<td width="15%"><button class="round-black-btn small-btn">OUT OF STOCK</button></td>
+								{% else %}
+								<td width="15%"><button class="round-black-btn small-btn">
+										<a href="{% url 'store:AddToCart' wishobj.product.id %}">
+											ADD TO CART
+										</a> </button></td>
+								{% endif %}
+								<td width="10%" class="text-center"><a href="{% url 'store:myWishRemove' wishobj.id %}" class="trash-icon">
+									<i class="far fa-trash-alt"></i></a></td>
+
+						</tbody>
+						{% endfor %}
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+{% endblock %}

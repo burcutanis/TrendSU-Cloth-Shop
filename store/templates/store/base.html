@@ -1,0 +1,173 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="{% static "css/womenDress2.css" %}"/>
+    <!-- Bootstrap CSS -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static "css/login.css" %}">
+    <link rel="stylesheet" href="{% static "css/register.css" %}">
+      <link rel="stylesheet" href="{% static "css/base.css" %}">
+      <link rel="stylesheet" href="{% static "css/womenNavbar.css" %}"/>
+      <link rel="stylesheet" href="{% static "css/womenDress.css" %}"/>
+      <link rel="stylesheet" href="{% static "css/product.css" %}"/>
+      <link rel="stylesheet" href="{% static "css/womenPage.css" %}"/>
+      <link rel="stylesheet" href="{% static "css/myOrders.css" %}"/>
+      <link rel="stylesheet" href="{% static "css/orderDetails.css" %}"/>
+      <link rel="stylesheet" href="{% static "css/myRating.css" %}"/>
+      <link rel="stylesheet" href="{% static "css/myBasket.css" %}"/>
+      <link rel="stylesheet" href="{% static "css/checkout.css" %}"/>
+      <link rel="stylesheet" href="{% static "css/receipt.css" %}"/>
+      <link rel="stylesheet" href="{% static "css/wishlist.css" %}"/>
+
+    <title>trendSU</title>
+    {% block extra_head %}
+    {% endblock %}
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/468cba9b63.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <img class="trendSU2" src="{% static "images/trendSU2.png" %}" alt="logo">
+      <a class = "navbar-brand trend" style="position: relative;left: 10px;">trend<span class ="SU">SU</span></a>
+      <ul class = "navbar-nav" style="position: relative;right: 280px;">
+        <li class="gender_nav nav-item">
+        <a class= "nav-link active" aria-current="page" href="{% url 'store:womenPage' %}">Women</a>
+        </li>
+
+      </ul>
+      <form class="d-flex" style="position: relative;right: 120px;">
+        <input class="form-control me-2" style="width: 300px;" type="search" placeholder="Search" aria-label="Search">
+        <button class="search_btn btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+      <ul class="navbar-nav ms-auto" style="position: relative;right: 80px;">
+        <li class="second-items nav-item dropdown" style="width: 120px;">
+          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-user"></i>  My Account
+          </a>
+          <ul class=" dropdown-menu" aria-labelledby="navbarDropdown">
+            {% if user.is_authenticated %}
+            <li class="my_account">
+              <div class=" gap-2 col-10 ">
+                <a href="{% url 'store:myOrders' %}" class="btn btn-dark btn-sm orders_button" role="button" style="width: 125px;"> MY ORDERS </a></a>
+
+              </div>
+            </li>
+            <li class="my_account">
+              <div class=" gap-2 col-10">
+                <a href="{% url 'store:myRatingsEvaluated' %}" class="btn btn-dark btn-sm evaluations_button"  role="button">  MY EVALUATIONS </a></a>
+
+              </div>
+            </li>
+            <li class="my_account">
+              <div class=" gap-2 col-10">
+                <a href="{% url 'store:myProfile' %}" class="btn btn-dark btn-sm evaluations_button"  role="button"  style="width: 125px;">  MY PROFILE </a></a>
+              </div>
+            </li>
+            <li class="my_account">
+              <div class=" gap-2 col-10 ">
+                <a href="{% url 'logout' %}" class="btn btn-dark btn-sm logout_button"  role="button" style="width: 125px;"> LOGOUT </a></a>
+
+              </div>
+            </li>
+            {% else %}
+            <li class="my_account">
+              <div class="d-grid gap-2 col-10 mx-auto">
+                <a href="{% url 'store:user_login' %}" class="btn btn-dark btn-sm" role="button"> LOG IN </a></a>
+
+              </div>
+            </li>
+            <li class="my_account">
+              <div class=" d-grid gap-2 col-10 mx-auto">
+                <a href="{% url 'store:register' %}" class="btn btn-light btn-sm" role="button"> REGISTER</a></a>
+
+              </div>
+            </li>
+            {% endif %}
+          </ul>
+        </li>
+        <li class="second-items nav-item" style= "width: 100px;">
+          <a class="star information nav-link active" href="{% url 'store:myWishList' %}">
+             <i class="fas fa-heart"></i> Wishlist </a>
+        </li>
+        <li class="second-items nav-item">
+          <a class="information nav-link active" style="width: 100px;"  href="{% url 'store:myBasket' %}"> <i class="fas fa-basket-shopping"></i> My Basket </a>
+        </li>
+      </ul>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+    <!-- END OF NAVIGATION BAR -->
+
+
+    <!-- <div class="">
+      <img src="{% static "images/mainPage1.jpg" %}"  class="main_img d-block" alt="Main alternative">
+
+    </div> -->
+
+
+   <!-- <div class="row">
+     <div class="col-lg-6">
+       <img src="{% static "images/main1.jpg" %}"  class="main_img1 d-block" alt="Main alternative">
+     </div>
+     <div class="col-lg-6">
+        <img src="{% static "images/main2.jpg" %}"  class="main_img2 d-block" alt="Main alternative">
+     </div>
+  </div> -->
+
+
+
+
+
+    <div class="container">
+        <br>
+        {% block content_mainPage %}
+        {% endblock  %}
+    </div>
+
+    <div class="container">
+        <br>
+        {% block content_Basket %}
+        {% endblock  %}
+    </div>
+
+    <div class="row">
+      <div class="col-lg-2 col-md-2">
+        {% block content_SideBar-order %}
+        {% endblock %}
+      </div>
+      <div class="col-lg-10 col-md-10">
+        {% block order-page %}
+        {% endblock %}
+      </div>
+    </div>
+
+        {% block extra_scripts %}
+        {% endblock extra_scripts %}
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+
+
+  </body>
+</html>

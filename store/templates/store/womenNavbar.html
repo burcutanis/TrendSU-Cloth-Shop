@@ -1,0 +1,226 @@
+<!doctype html>
+{% load static %}
+{% load cart_template_tags %}
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+  <link rel="stylesheet" href="{% static "css/womenNavbar.css" %}" />
+  <link rel="stylesheet" href="{% static "css/womenDress.css" %}" />
+  <link rel="stylesheet" href="{% static "css/product.css" %}" />
+  <link rel="stylesheet" href="{% static "css/womenPage.css" %}" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <title>trendSU</title>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/468cba9b63.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <img class="trendSU2" src="{% static "images/trendSU2.png" %}" alt="logo">
+      <a class="navbar-brand" style="position: relative;right: 80px;">trend<span class="SU">SU</span></a>
+
+      <ul class="navbar-nav" style="position: relative;right: 150px;">
+        <li class="gender_nav nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'store:womenPage' %}">Women</a>
+        </li>
+
+      </ul>
+      <form class="d-flex" action = " {% url 'store:search' %}" method = "GET" >
+        <input class="form-control me-2 search_form" style="width: 300px;" type="text"  aria-label="Search" name = "keyword" placeholder="Search" required>
+        <button class="search_btn btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+      <ul class="navbar-nav" >
+        <li class="second-items nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user"></i> My Account
+          </a>
+          <ul class=" dropdown-menu" aria-labelledby="navbarDropdown">
+            {% if user.is_authenticated %}
+            <li class="my_account">
+              <div class="d-grid gap-2 col-10 mx-auto">
+                <a href="{% url 'store:myOrders' %}" class="btn btn-dark btn-sm" role="button"> MY ORDERS </a></a>
+
+              </div>
+            </li>
+            <li class="my_account">
+              <div class="d-grid gap-2 col-10 mx-auto">
+                <a href="{% url 'store:myRatingsEvaluated' %}" class="btn btn-dark btn-sm" role="button"> MY EVALUATIONS </a></a>
+
+              </div>
+            </li>
+            <li class="my_account">
+              <div class="d-grid gap-2 col-10 mx-auto">
+                <a href= "{% url 'store:myProfile' %}" class="btn btn-dark btn-sm" role="button"> MY PROFILE </a></a>
+
+              </div>
+            </li>
+            <li class="my_account">
+              <div class="d-grid gap-2 col-10 mx-auto">
+                <a href="{% url 'logout' %}" class="btn btn-dark btn-sm" role="button"> LOGOUT </a></a>
+
+              </div>
+            </li>
+            {% else %}
+            <li class="my_account">
+              <div class="d-grid gap-2 col-10 mx-auto">
+                <a href="{% url 'store:user_login' %}" class="btn btn-dark btn-sm" role="button"> LOG IN </a></a>
+
+              </div>
+            </li>
+            <li class="my_account">
+              <div class=" d-grid gap-2 col-10 mx-auto">
+                <a href="{% url 'store:register' %}" class="btn btn-light btn-sm" role="button"> REGISTER</a></a>
+
+              </div>
+            </li>
+            {% endif %}
+          </ul>
+        </li>
+        <li class="second-items nav-item">
+          <a class="star information nav-link active" href="{% url 'store:myWishList' %}">
+             <i class="fas fa-heart"></i> Wishlist </a>
+        </li>
+        <li class="second-items nav-item">
+          <a class="information nav-link active" href="{% url 'store:myBasket' %}">
+
+            <i class="fas fa-basket-shopping"></i> My Basket </a>
+        </li>
+      </ul>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+
+
+  <!-- Women Navbar -->
+  <nav class="second_navbar_women navbar navbar-expand-lg navbar-light bg-light">
+    <div class="women_navbar_cont container-fluid">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="secondNav navbar-nav">
+          <li class="second-items nav-item">
+              <a class="star information nav-link active" href="{% url 'store:AllListView' %}"> All Products</a>
+          </li>
+          <li class="women_li nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Clothing
+            </a>
+            <ul class="women_dropdown_clothes dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="row">
+                <div class="col-lg-6">
+
+                  <li><a class="dropdown-item" href="{% url 'store:DressListView' %}">Dresses</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:SweatshirtListView' %}">Sweatshirts</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:BlousesListView' %}">Blouses&Shirts</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:SweaterListView' %}">Sweater</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:TshirtListView' %}">T-shirts</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:CoatListView' %}">Coats&Jackets</a></li>
+
+
+                </div>
+                <div class="col-lg-6">
+                  <li><a class="dropdown-item" href="{% url 'store:SkirtListView' %}">Skirts</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:SleepListView' %}">SleepWear</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:ShortListView' %}">Shorts&Bermuda</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:PantListView' %}">Pants&Jeans</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:SweatsuitListView' %}">Sweatsuit</a></li>
+
+                </div>
+
+              </div>
+            </ul>
+          </li>
+          <li class="women_li nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Tops
+            </a>
+            <ul class="women_dropdown_tops dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="row">
+                <div class="col-lg-12">
+                  <li><a class="dropdown-item" href="{% url 'store:SweatshirtListView' %}">Sweatshirts</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:BlousesListView' %}">Blouses&Shirts</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:SweaterListView' %}">Sweater</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:TshirtListView' %}">T-shirts</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:CoatListView' %}">Coats&Jackets</a></li>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="women_li nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Bottoms
+            </a>
+            <ul class="women_dropdown_pants dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="row">
+                <div class="col-lg-12">
+                  <li><a class="dropdown-item" href="{% url 'store:ShortListView' %}">Shorts</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:PantListView' %}">Pants & Jeans</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:SkirtListView' %}">Skirts</a></li>
+                  <li><a class="dropdown-item" href="{% url 'store:SweatsuitListView' %}">Sweatsuit</a></li>
+
+
+                </div>
+              </div>
+            </ul>
+          </li>
+
+
+          <div class="header-bottom-set dropdown" style="position: absolute;right: 75px;top: 20px;">
+            <button class = "dropdown-toggle header-action-btn" data-bs-toggle= "dropdown">Default <i class ="fas fa-angle-down"></i></button>
+            <ul class="dropdown-menu dropdown-mun-right">
+                <li><a class="dropdown-item" name = "keyword" href="{% url 'store:priceDes' %}">Price, high-to-low</a></li>
+                <li><a class="dropdown-item" name = "keyword" href="{% url 'store:price' %}">Price, low-to-high</a></li>
+                <li><a class="dropdown-item" name = "keyword" href="{% url 'store:popularityDes' %}">Most popular</a></li>
+                <li><a class="dropdown-item"  name = "keyword" href="{% url 'store:popularityAs' %}">Least populars</a></li>
+            </ul>
+          </div>
+
+          <li class="second-items nav-item">
+              <a class="star information nav-link" href="{% url 'store:OtherCategoryListView' %}">Others</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% block content_womenPage %}
+  {% endblock %}
+
+  <div class="row">
+    <div class="col-lg-2">
+      {% block content_SideBar %}
+      {% endblock %}
+    </div>
+    <div class="col-lg-10">
+      {% block content_Page %}
+      {% endblock %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      {% block content_product %}
+      {% endblock %}
+    </div>
+  </div>
+
+  {% block content_AllPage %}
+  {% endblock %}
+
+
+
+
+</body>
+
+</html>

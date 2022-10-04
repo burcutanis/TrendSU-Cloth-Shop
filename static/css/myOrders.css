@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position:fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+
+.order-card {
+  margin-right: 3rem;
+  margin-bottom:50px;
+}
+.inner-card-order {
+  height: 250px;
+  width:150px;
+}
+.order_details_button {
+    position: absolute;
+    right: 50px;
+    top: 20px;
+    width:20rem;
+}
+
+.order-text {
+  font-size: 16px;
+  color: grey;
+  margin-bottom: 0;
+  font-family:serif;
+}
+
+.order-info {
+  font-size: 15px;
+  font-family:serif;
+
+}
+
+
+.order-picture {
+  height: 200px;
+  width:150px;
+
+}
+
+/* .thumb-icon {
+  max-width: 10%;
+    max-height: 10%;
+    position: absolute;
+    top: 60px;
+    left:50px;
+} */
+
+.status-info {
+  position: absolute;
+    top: 60px;
+    left: 85px;
+    color: #37cc75;
+    font-family: serif;
+    font-weight: bold;
+}
+
+.status-info-text {
+  position: absolute;
+    top: 90px;
+    left: 50px;
+    font-family: serif;
+    font-weight: bold;
+}
+
+.order-pictures-div {
+  padding-left: 100px;
+}

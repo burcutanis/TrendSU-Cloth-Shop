@@ -1,0 +1,60 @@
+{% extends 'productmanagers/adminBase.html' %}
+{% load static %}
+{% block content_mainPage %}
+
+
+
+
+<div class="row login-row">
+  <div class="col-lg-4">
+    <!-- <img class="trendSU_logo_login" src="{% static "images/trendSU_logo.png" %}" alt="logo"> -->
+
+  </div>
+  <div class=" col-lg-4 login-card1">
+    <!-- <img class="trendSU_text" src="{% static "images/trendSU_text.png" %}" alt="logo"> -->
+    <!-- <img class="trendSU" src="{% static "images/trendSU2.png" %}" alt="logo"> -->
+
+    <div class=" login_div Login_Box">
+      <form method="POST" action="">
+        <h1> Product Manager Login</h1>
+        {% csrf_token %}
+        <hr class="Login_Line">
+        <div class="Log_Username_Field">
+          <div class="form-group">
+            <!-- <input type="text" name="username" placeholder="Username" class="form-control " value="">
+            <span class="invalid-feedback"></span> -->
+            <input type="text" name="username" class="form-control " required="" id="id_username">
+
+          </div>
+        </div>
+
+        <div class="Log_Password_Field">
+          <div class="form-group">
+            <!-- <input type="password" name="password" placeholder="Password" class="form-control ">
+            <span class="invalid-feedback"></span> -->
+            <input type="password" name="password" class="form-control " required="" id="id_password">
+
+          </div>
+        </div>
+
+        <p>Don't have an account? <a href="{% url 'store:register' %}">Sign up now</a>.</p>
+
+        <div class="Login_Button">
+          <div class="login_Button  d-grid gap-2 col-8 mx-auto"">
+            <button class="btn btn-primary">Login as a Product Manager</button>
+                 <!-- <input type=" submit" name="" class="btn btn-primary " value="Login"> -->
+          </div>
+          {% if error %}
+          <li style="color: red;">{{error}}</li>
+          {% endif %}
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock  %}

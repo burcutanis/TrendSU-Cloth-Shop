@@ -1,0 +1,59 @@
+{% extends 'salesmanagers/adminBase.html' %}
+
+
+
+{% block content_mainPage %}
+
+<center>
+{% if request.user.salesmanagersadmin.distributor is None %}
+<h3> Product List </h3> <hr>
+{% else %}
+<h3> Product List  for  distributor: {{ request.user.salesmanagersadmin.distributor }} </h3> <hr>
+{% endif %}
+</center>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Distributor</th>
+            <th>Product ID</th>
+            <th>Product Title</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Change DiscountRate</th>
+            <th> Change Price</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in results %}
+        <tr>
+            <td>{{p.distributor}}</td>
+            <td>{{p.id}}</td>
+            <td><p>{{ p.name }} </td>
+
+            <td>{{p.category}}</td>
+            <td><img src= {{p.Primaryimage.url}} style="height: 60px;" alt=""></td>
+            <td>{{p.price}}</td>
+            <td><a href="{% url 'store:SalesAdminChangePrice' p.id %}"> [change discount] </a> </td>
+            <td><a href="{% url 'store:sales_managers_price' p.id %}"> [change price] </a> </td>
+
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- <center>
+    <h3>All Products for distributor: {{ distributor.name }} </h3><hr>
+    <ul>
+        {% for r in results %}
+        <li>
+            <p>{{ r.name }} - <a href="{% url 'store:SalesAdminChangePrice' r.id %}">[edit]</a> --- Distributor Name: {{ r.distributor }} </p>
+        </li>
+        {% endfor %}
+    </ul>
+</center> -->
+
+{% endblock %}

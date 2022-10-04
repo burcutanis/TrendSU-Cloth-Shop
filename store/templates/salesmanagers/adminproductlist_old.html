@@ -1,0 +1,19 @@
+{% extends 'salesmanagers/adminBase.html' %}
+
+
+
+{% block content_mainPage %}
+<center>
+  <h1>Product List</h1>
+  <h3>distributor: {{distributor}}</h3>
+  <hr>
+
+    <ul>
+        {% for r in results %}
+        <li>
+            <p>{{ r.name }} - <a href="{% url 'store:SalesAdminChangePrice' r.id %}">[edit]</a> --- distributor: {{ r.distributor }} </p>
+        </li>
+        {% endfor %}
+    </ul>
+</center>
+{% endblock %}

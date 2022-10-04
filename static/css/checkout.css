@@ -1,0 +1,16 @@
+.checkout_card {
+  position: relative;
+  left: 200px;
+}
+
+#shipping_address {
+  position: relative;
+left: 100px;
+top: 24px;
+}
+
+#shipping_address2 {
+  position: relative;
+left: 150px;
+top: 24px;
+}

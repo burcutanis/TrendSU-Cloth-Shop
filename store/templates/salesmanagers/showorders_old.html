@@ -1,0 +1,31 @@
+{% extends 'salesmanagers/adminBase.html' %}
+
+{% block content_mainPage %}
+
+<center>
+
+    <h1>ALL INVOICES</h1>
+    <h3>distributor: {{distributor}}</h3>
+    <hr>
+
+    <form method="POST">
+        {% csrf_token %}
+        From : <input type="date" name="fromdate"/>
+        To : <input type="date" name="todate"/>
+        <input type="submit" value="Search"/>
+    </form>
+    <br><br><br>
+    <ul>
+        {% for r in results %}
+        <li>
+            <p>PRODUCT: {{ r.product }}</p>
+            <p>USER: {{ r.order.customer }}</p>
+            <p>TOTAL: {{ r.subtotal }}</p>
+            <p>DATE: {{ r.order.created_at }}</p>
+            <a href="{% url 'store:ShowPDF' r.id %}">TO_PDF</a>
+            <p>----------------------------------------------------------------------------------------------</p>
+        </li>
+        {% endfor %}
+    </ul>
+</center>
+{% endblock %}

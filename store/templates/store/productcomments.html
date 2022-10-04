@@ -1,0 +1,38 @@
+{% extends 'store/womenNavbar.html' %}
+{% load static %}
+
+{% block content_product %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <h3>Reviews for Product <span class="text-info"> "{{reviews.last.product.name}}"</span> </h3>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>SN</th>
+                        <th>Review ID </th>
+                        <th>Customer</th>
+                        <th>Comment</th>
+                        <th>Rate</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for review in reviews %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>Review{{review.id}}</td>
+                        <td>{{review.review_list.customer.user.username}}</td>
+                        <td>{{review.comment}}</td>
+                        <td>{{review.rate}}/10</td>
+                        <td>{{review.review_status}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

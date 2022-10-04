@@ -1,0 +1,137 @@
+@import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+@import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+
+
+.rate-picture {
+  max-width: 100%;
+}
+
+.rate-product-info {
+  padding-left: 0;
+  padding-top:15px;
+  text-align: left;
+}
+
+.rating-row {
+  margin: 10px 0 30px;
+}
+
+.evaluate-product-name {
+  font-weight: bold;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+/* MODAL */
+
+.rate-modal-title {
+font-family: sans-serif;
+font-weight: bold;
+color: grey;
+font-size: 20px;
+}
+
+
+/* RATING */
+.myratings {
+    font-size: 85px;
+    color: green
+}
+
+.rating>[id^="star"] {
+    display: none
+}
+ .rating>label:before {
+    margin: 5px;
+    font-size: 2.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005"
+}
+
+
+ .rating>label {
+    color: #ddd;
+    float: right
+ }
+
+.rating>[id^="star"]:checked~label,
+.rating:not(:checked)>label:hover,
+.rating:not(:checked)>label:hover~label {
+    color: #FFD700
+}
+
+.rating>[id^="star"]:checked+label:hover,
+.rating>[id^="star"]:checked~label:hover,
+.rating>label:hover~[id^="star"]:checked~label,
+.rating>[id^="star"]:checked~label:hover~label {
+    color: #FFED85
+}
+
+.reset-option {
+    display: none
+}
+
+.reset-button {
+    margin: 6px 12px;
+    background-color: rgb(255, 255, 255);
+    text-transform: uppercase
+}
+
+
+.rating-card {
+    position: relative;
+    width: 255px;
+
+
+}
+/* END OF RATING */
+
+
+
+.rate-picture-modal{
+  max-width: 100%;
+  width: 100px;
+  padding: 15px 0 15px 15px;
+
+}
+
+.rate-product-info-modal {
+  padding-left: 0;
+  padding-top:15px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.comment-card-modal {
+  height: 150px;
+}
+
+.comment-form {
+  padding-left: 32px;
+}
+/*  END OF MODAL */
+
+
+
+/*  EVALUATED PAGE */
+.picture-evaluated {
+  max-width:100%;
+}
+
+.comment-evaluated {
+  height: 90px;
+  width: 340px;
+}
+.comments-text{
+  color: grey;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.evaluated-product-name {
+  font-weight: bold;
+  font-size: 16px;
+  font-family: sans-serif;
+}

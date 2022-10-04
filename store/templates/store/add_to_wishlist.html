@@ -1,0 +1,15 @@
+{% extends 'store/womenNavbar.html' %}
+{% load static %}
+
+{% block content_AllPage %}
+<div class="container" style="margin-top: 50px;">
+  <div class="row">
+    <div class="col7">
+        <h4>Product is added to your wish list</h1>
+        <a href="{% url 'store:myWishList' %}">You can go to your wish list by clicking here</a></td>
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}

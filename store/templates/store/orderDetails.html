@@ -1,0 +1,179 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+
+
+
+{% block content_SideBar-order %}
+<div class="sidebar">
+  <a class="" href="{% url 'store:myOrders' %}">My Orders</a>
+  <a href="{% url 'store:myRatingsEvaluated' %}">My ratings</a>
+  <a href="{% url 'store:myProfile' %}">My User Information</a>
+
+</div>
+{% endblock %}
+
+{% block order-page %}
+<div class="card order-card">
+  <h5 class="card-header">
+    <div class="row">
+
+
+      <div class="date col-3">
+        <p class="order-text">Order ID</p>
+        <div class="row">
+          <div class="col-12">
+            <p class="order-info">#ORDER_{{ord_obj.id}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="date col-3">
+        <p class="order-text">Order Date</p>
+        <div class="row">
+          <div class="col-12">
+            <p class="order-info">{{ord_obj.created_at}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="cost col-3">
+        <p class="order-text">Ordered By</p>
+        <div class="row">
+          <div class="col-12">
+            <p class="order-info">{{ord_obj.ordered_by}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="date col-3">
+        <p class="order-text">Adress</p>
+        <div class="row">
+          <div class="col-12">
+            <p class="order-info">{{ord_obj.shipping_address}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="purchaser col-3">
+        <p class="order-text">Email</p>
+        <div class="row">
+          <div class="col-12">
+            <p class="order-info">{{ord_obj.email}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="cost col-3">
+        <p class="order-text">Total Cost</p>
+        <div class="row">
+          <div class="col-12">
+            <p class="order-info">{{ord_obj.total}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </h5>
+  </div>
+
+
+
+  <div class="card-body">
+    <div class="row">
+      {% for cp in ord_obj.orderproduct_set.all %}
+      <div class="col-6" style="padding-left: 0px;">
+        <div class="card bought-product-div" style="margin-bottom: 20px;">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <img src="{{cp.product.Primaryimage.url}}" alt="product" class="picture-bought">
+            </div>
+            <div class="col-9">
+                <p class="evaluated-product-name" style="margin-top: 10px;">{{cp.product.name}}</p>
+                <div class="row">
+                  <div class="col-8 col-md-4 bought-product-info">
+                    <div class="">
+                      <p>Product id: <span>{{cp.product.id}}</span></p>
+                      <p>Quantity: <span>{{cp.quantity}}</span></p>
+                      <p>Total Price: <span>{{cp.subtotal}}</span></p>
+                    </div>
+                  </div>
+                  <div class="col-8" style="padding-left: 0px;">
+                    <p >Order Status: <span>{{cp.order_status}}</span></p>
+                    <p>Distributor: <span>{{cp.distributor}}</span></p>
+                    <div class="col-lg-10" style="margin-bottom: 20px; padding-right:0;margin-top: 10px;">
+                      <a href="{% url 'store:rate' cp.product.id %}" class="cart_button btn btn-info col-12" role="button" style="width: 400px;"> Make Comment </a>
+                    </div>
+
+                    <div class="col-lg-10" style="margin-bottom: 20px; padding-right:0;margin-top: 5px;">
+                      {% if cp.refund_requested == False %}
+
+                        {% if cp.order_status == "Order Delivered"%}
+
+                          <a href="{% url 'store:request-refund' cp.pk %}" style="  position: relative; right: 50px;" class="btn btn-info">Return the product and ask for a Refund</a>
+
+                        {%endif %}
+
+
+                      {% elif cp.refund_requested == True and cp.refund_granted == False%}
+
+                        <h4>Refund request is under evaluation.</h1>
+
+                      {% else%}
+
+                        <h4>Total of {{cp.subtotal}} is refunded to your account.</h1>
+                      {%endif %}
+                    </div>
+                  </div>
+
+                </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+
+
+<!-- <div class="card order-card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6">
+        <div class="row px-3">
+          <div class="col">
+            <ul id="progressbar">
+              <li class="step0 active " id="step1">PLACED</li>
+              <li class="step0 active text-center" id="step2">SHIPPED</li>
+              <li class="step0 text-muted text-right" id="step3">DELIVERED</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <img src="{% static "images/processing.png" %}" alt="tshirt group" class="deliver-icon1">
+          </div>
+          <div class="col-4">
+            <img src="{% static "images/intransit.png" %}" alt="tshirt group" class="deliver-icon2">
+          </div>
+          <div class="col-4">
+            <img src="{% static "images/delivered.png" %}" alt="tshirt group" class="deliver-icon3">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <h5 class="card-header">
+  <div class="row">
+    <div class="id_delivery_div col-1">
+      <p class="order-text">ID:</p>
+    </div>
+    <div class="id_delivery_div2 col-2">
+      <p class="order-info">5479380</p>
+    </div>
+  </div>
+  <a href="" class="btn btn-dark btn-sm cancel-order-button" role="button">Cancel the order</a></a>
+</h5> -->
+{% endblock %}

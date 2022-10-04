@@ -1,0 +1,88 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content_mainPage%}
+
+<table class="body-wrap">
+  <tbody>
+    <tr>
+      <td></td>
+      <td class="container" width="600">
+        <!-- <p>pk={{pk}}</p>
+          <p>order_id={{order_id}}</p>
+          <p>ord_obj.id={{ord_obj_id}}</p>
+          <p>username={{user.username}}</p>
+          <p>ord_obj.ordered_by={{ord_obj.ordered_by}}</p> -->
+
+
+        <div class="content">
+          <table class="main" width="100%" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr>
+                <td class="content-wrap aligncenter">
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tbody>
+                      <tr>
+                        <td class="content-block">
+                          {% if ord_obj.checkCanceled %}
+                            <h2>Refunding Details</h2>
+                          {% else %}
+                            <h2>Thanks for using trendSU</h2>
+                          {% endif %}
+                        </td>
+                      </tr>
+                      <tr>
+                        <table class="invoice">
+                          <tbody>
+                            <tr>
+                              <td>{{ord_obj.ordered_by}}<br>Invoice {{ord_obj.id}}<br>{{ord_obj.created_at}}</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table class="invoice-items" cellpadding="0" cellspacing="0">
+                                  <tbody>
+
+                                    {% for cp in ord_obj.orderproduct_set.all %}
+                                    <tr>
+                                      <td>{{cp.product.name}}</td>
+                                      <td class="alignright">{{cp.subtotal}}TL</td>
+                                    </tr>
+                                    {% endfor %}
+
+                                    <tr class="total">
+                                      <td class="alignright" width="80%">Total</td>
+                                      <td class="alignright">{{ord_obj.total}}TL</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="content-block">
+                  <a href="{% url 'store:SendEmail' ord_obj.id %}" style="position: relative;left: 240px;">Send e-mail</a>
+
+                </td>
+
+              </tr>
+              <tr>
+                <td class="content-block" style="position: relative;left: 225px;">
+                  Company trendSU
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+{% endblock %}

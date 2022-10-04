@@ -1,0 +1,155 @@
+{% extends 'store/womenNavbar.html' %}
+{% load static %}
+{% block content_womenPage %}
+<section class="woman-main-section">
+  <img src="{% static "images/womenMain.jpg" %}" class="main-image d-block w-100" alt="womenMain alternative">
+  </<section>
+
+</section>
+
+<section class="woman-clothing-section">
+  <div class="woman-title1">
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-3 col-md-6 dress-card1">
+      <a href="{% url 'store:DressListView' %}">
+        <img src="{% static "images/women/xgroupDress.jpg" %}" alt="dress group" class="dress-image1">
+      </a>
+      <p class="product_text">Shop Dresses</p>
+    </div>
+
+    <div class="col-lg-3 col-md-6 dress-card1">
+      <a href="{% url 'store:BlousesListView' %}">
+        <img src="{% static "images/women/xgroupBlouse.jpg" %}" alt="dress group" class="dress-image1">
+      </a>
+      <p class="product_text">Shop Blouses&Shirts</p>
+    </div>
+
+    <div class="col-lg-3 col-md-6 dress-card1">
+      <a href="{% url 'store:SkirtListView' %}">
+        <img src="{% static "images/women/xgroupSkirt.jpg" %}" alt="skirt group" class="dress-image1">
+      </a>
+      <p class="product_text">Shop Skirts</p>
+    </div>
+
+    <div class="col-lg-3 col-md-6 dress-card1">
+      <a href="{% url 'store:TshirtListView' %}">
+        <img src="{% static "images/women/xgroupTshirt.jpg" %}" alt="tshirt group" class="dress-image1">
+      </a>
+      <p class="product_text">Shop T-shirts</p>
+    </div>
+
+
+  </div>
+</section>
+
+<section class="woman-main-section">
+  <img src="{% static "images/womenMain2.jpg" %}" class="main-image2 d-block w-100" alt="womenMain alternative">
+  </<section>
+
+
+    <section class="woman-clothing-section">
+      <div class="woman-title1">
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 dress-card1">
+          <a href="{% url 'store:SweaterListView' %}">
+            <img src="{% static "images/women/xgroupSweatshirt.jpg" %}" alt="sweatshirt group" class="dress-image1">
+          </a>
+          <p class="product_text">Shop Sweatshirts</p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 dress-card1">
+          <a href="{% url 'store:ShortListView' %}">
+            <img src="{% static "images/women/xgroupShorts.jpg" %}" alt="shorts group" class="dress-image1">
+          </a>
+          <p class="product_text">Shop Shorts&bermudas</p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 dress-card1">
+          <a href="{% url 'store:SweaterListView' %}">
+            <img src="{% static "images/women/xgroupSweater.jpg" %}" alt="sweater group" class="dress-image1">
+          </a>
+          <p class="product_text">Shop Sweaters</p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 dress-card1">
+          <a href="{% url 'store:PantListView' %}">
+            <img src="{% static "images/women/xgroupPantss.jpg" %}" alt="pants group" class="dress-image1">
+          </a>
+          <p class="product_text">Shop Pants&Jeans</p>
+        </div>
+
+
+      </div>
+    </section>
+
+
+    <section class="woman-main-section">
+      <img src="{% static "images/womenMain4.jpg" %}" class="main-image4 d-block w-100" alt="womenMain alternative">
+      </<section>
+
+      <section class="woman-clothing-section">
+        <div class="woman-title1">
+
+        </div>
+
+        <div class="row">
+
+          <div class=" col-lg-3 col-md-6 dress-card1">
+            <a href="{% url 'store:CoatListView' %}">
+              <img src="{% static "images/women/xgroupCoatss.jpg" %}" alt="coats group" class="dress-image1">
+            </a>
+            <p class="product_text">Shop Coats</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 dress-card1">
+            <a href="{% url 'store:SleepListView' %}">
+              <img src="{% static "images/women/xgroupPajamas.jpg" %}" alt="sleepwear group" class="dress-image1">
+            </a>
+            <p class="product_text">Shop Sleepwear</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 dress-card1">
+            <a href="{% url 'store:SweatsuitListView' %}">
+              <img src="{% static "images/women/xgroupSweatsuit.jpg" %}" alt="sweatsuit group" class="dress-image1">
+            </a>
+            <p class="product_text">Shop Sweatsuit</p>
+          </div>
+
+
+        </div>
+      </section>
+
+
+
+
+
+
+      <section class="woman-main-section">
+        <img src="{% static "images/womenMain3.jpg" %}" class="main-image3 d-block w-100" alt="womenMain alternative">
+        </<section>
+
+
+
+
+
+        <!-- Footer -->
+
+        <footer class="white-section" id="footer">
+          <div class="container-fluid">
+            <i class="social-icon fab fa-facebook-f"></i>
+            <i class="social-icon fab fa-twitter"></i>
+            <i class="social-icon fab fa-instagram"></i>
+            <i class="social-icon fas fa-envelope"></i>
+            <p>© Copyright 2022 trendSU</p>
+          </div>
+        </footer>
+
+        {% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'productmanagers/adminBase.html' %}
+{% load static %}
+
+{% block content_mainPage %}
+<div class="container" style = "margin-bottom: 200px;">
+
+    <div class="row">
+        <div class="col-md-9 mx-auto">
+
+
+            <h3>Review Detail</h3>
+            <hr>
+            <div class="card order-card mx-auto">
+              <h5 class="card-header">
+                <div class="row">
+
+                  <div class="date col-3">
+                    <p class="order-text">Review ID</p>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="order-info">Review{{review_obj.id}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="purchaser col-3">
+                    <p class="order-text">Review Status</p>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="order-info">{{review_obj.review_status}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cost col-3">
+                    <p class="order-text">Username</p>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="order-info">{{review_obj.review_list.customer.user.username}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="padding-top: 20px;">
+                  <div class="purchaser col-3">
+                    <p class="order-text">Email</p>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="order-info">{{review_obj.review_list.customer.user.email}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </h5>
+              </div>
+
+            <h4>Reviewed Item</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th>Item</th>
+                        <th>Rate</th>
+                        <th>Comment</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><a target="_blank"
+                                href="{% url 'store:productDetail' review_obj.product.slug %}">{{review_obj.product.name}}({{review_obj.product.id}})</a>
+                        </td>
+                        <td>{{review_obj.rate}}</td>
+                        <td>{{review_obj.comment}}</td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+            <form action="{% url 'store:adminreviewstatuschange' review_obj.id %}" method="POST">
+                {% csrf_token %}
+                <select name="status" class= "form-control col-3">
+                    {% for i, j in allstatus %}
+                    <option value="{{i}}" {% if i == review_obj.review_status %}selected{% endif %}>{{j}}</option>
+                    {% endfor %}
+                </select>
+                <button class="btn btn-info" style = "margin-top:20px;">Change</button>
+
+            </form>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

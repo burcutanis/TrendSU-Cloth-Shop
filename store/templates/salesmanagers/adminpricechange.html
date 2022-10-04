@@ -1,0 +1,29 @@
+{% extends 'salesmanagers/adminBase.html' %}
+{% load static %}
+
+{% block content_mainPage %}
+<center>
+<img src= ../../../images/{{object.Primaryimage}} alt="item" class="dress" width="200" height="240">
+<br><br>
+
+<ul>
+    <li>
+        Name: {{ object.name }} <br>
+    </li>
+    <li>
+        Price: {{ object.price }} <br>
+    </li>
+    <li>
+        Category: {{ object.category }} <br><br>
+    </li>
+</ul>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+</center>
+
+
+{% endblock %}

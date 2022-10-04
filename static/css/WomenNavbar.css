@@ -1,0 +1,149 @@
+/* Navigation Bar */
+
+.trendSU2 {
+ width: 30px;
+ height: 30px;
+}
+
+.SU {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.trend {
+  font-weight: bold;
+}
+
+.top {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 20px;
+  border-bottom: 2px;
+}
+
+
+.right-items {
+  margin: 0px 5px;
+}
+
+.my_account {
+  margin: 15px 0;
+}
+
+.search_form {
+
+}
+
+.d-flex {
+  display: flex!important;
+
+
+}
+
+
+ /* Place of the search bar */
+
+
+.secondNav {
+  width: 100%;
+}
+
+/* .form-control {
+  width: 350px;
+} */
+
+.search_btn {
+  width: 100px;
+}
+
+.navbar-brand {
+  font-size: 25px;
+  padding-left: 15px;
+  margin-right: 300px;
+}
+
+.gender_nav {
+  margin: 0px 10px;
+}
+
+
+
+.my_account {
+  margin: 15px 0;
+}
+
+
+
+/* Women Navigation Bar */
+
+.second_navbar_women {
+  padding-top: 0px;
+
+}
+
+.women_li {
+  margin: 0px 25px;
+}
+
+/* WOMEN DROPDOWN */
+.women_dropdown_clothes {
+  width: 450px;
+  height: 250px;
+}
+
+.women_dropdown_tops {
+  width: 30px;
+  height: 200px;
+}
+.women_dropdown_pants {
+  width: 30px;
+  height: 200px;
+}
+.women_dropdown_bags {
+  width: 400px;
+  height: 130px;
+}
+.women_dropdown_shoes {
+  width: 400px;
+  height: 190px;
+}
+.women_dropdown_cosmetics {
+  width: 450px;
+  height: 250px;
+}
+
+/* END OF THE WOMEN DROPDOWN */
+
+.clothes_a_left {
+  width: 50%;
+}
+.clothes_a_right {
+  width:50%;
+
+}
+.clothes_td {
+
+
+}
+
+.women_navbar_cont {
+  border-top: solid #d5d9d0;
+  border-top-width: 0.5px;
+
+}
+table {
+  width: 100%;
+}
+
+
+
+/* SideBar */
+.sidebar {
+  height: 1000px;
+  width:  200px;
+  border-right: solid rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;
+}
+
+.sidebar_body {
+  padding-bottom: 50px;
+}

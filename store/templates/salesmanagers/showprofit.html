@@ -1,0 +1,74 @@
+{% extends 'salesmanagers/adminBase.html' %}
+
+{% block content_mainPage %}
+
+<center>
+
+    {% if request.user.salesmanagersadmin.distributor is None %}
+    <h3>TOTAL SALES  </h3> <hr>
+    {% else %}
+    <h3>TOTAL SALES  for  distributor: {{ request.user.salesmanagersadmin.distributor }} </h3> <hr>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        From : <input type="date" name="fromdate"/>
+        To : <input type="date" name="todate"/>
+        <input type="submit" value="Search"/>
+    </form>
+    <br><br><br>
+</center>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>OrderProduct ID</th>
+            <th>Order Date</th>
+            <th>Customer</th>
+            <th>Quantity</th>
+            <th>Product ID</th>
+            <th>Product Title</th>
+            <th>Image</th>
+            <th>Purchase Price</th>
+            <th>Sale Price</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in results %}
+        <tr>
+            <td>{{r.id}}</td>
+            <td>{{r.order.created_at}}</td>
+            <td>{{r.order.customer}}</td>
+            <td>{{r.quantity}}</td>
+            <td>{{ r.product.id }} </td>
+            <td>{{ r.product.name }} </td>
+            <td><img src= {{r.product.Primaryimage.url}} style="height: 60px;" alt=""></td>
+            <td>{{r.product.purchase_price}}</td>
+            <td>{{r.subtotal}}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+    <h1>Total sales in given date range is: {{ total }}</h1>
+    <h2>Date Range {{ fromdate}} - {{ todate}}</h2>
+<!--
+<center>
+
+    <ul>
+        {% for r in results %}
+        <li>
+            <p>PRODUCT: {{ r.product }}</p>
+            <p>USER: {{ r.order.customer }}</p>
+            <p>TOTAL: {{ r.order.total }}</p>
+            <a href="{% url 'store:ShowPDF' r.id %}">TO_PDF</a>
+            <p>----------------------------------------------------------------------------------------------</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <h1>Total sales in given date range is: {{ total }}</h1>
+</center> -->
+
+{% endblock %}

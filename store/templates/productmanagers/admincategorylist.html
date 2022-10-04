@@ -1,0 +1,37 @@
+{% extends 'productmanagers/adminBase.html' %}
+
+
+
+{% block content_mainPage %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>All Category list </h3><hr>
+            <a href="{% url 'store:admincategorycreate' %}">Add New Category</a>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>SN</th>
+                        <th>Category</th>
+                        <th>Delete</th>
+
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in results %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{p.name}}</td>
+                        <td><a href= "{% url 'store:admincategorydelete' p.id %}?action=delete" class="float-end text-black"><i class="fas fa-times"></i></a></td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content_mainPage %}
+
+<main>
+  <div class="container wow fadeIn">
+    <h2 class="my-5 h2 text-center">Checkout form</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4 checkout_card mx-auto">
+        <div class="card">
+          <form method="POST" action="." class="card-body">
+            {% csrf_token %}
+
+
+
+            <div class='hideable_shipping_form'>
+
+              <div class="md-form mb-5">
+
+                <label for="ordered_by" class="">Ordered By</label>
+                <input type="text" name="ordered_by" maxlength="200" id="id_ordered_by" class='form-control'>
+                <!-- {{ form.ordered_by}} -->
+              </div>
+
+              <div class="md-form mb-5">
+
+                <label for="shipping_address" class="">Shipping Adresss</label>
+                <!-- {{ form.shipping_address}} -->
+                <input type="text" name="shipping_address" maxlength="200" id="id_shipping_address" class='form-control'>
+              </div>
+
+              <div class="md-form mb-5">
+
+
+
+                <label for="shipping_address" class="">Email</label>
+                <input type="email" name="email" maxlength="254" id="id_email" class='form-control'>
+                <!-- {{ form.email}} -->
+              </div>
+
+              <div class="md-form mb-5">
+                <!-- <input type='text' placeholder='Apartment or suite' id='shipping_address2' name='shipping_address2' class='form-control' /> -->
+
+                <label for="shipping_address2" class="">Payment Method</label>
+                <select name="payment_method" id="id_payment_method" class='form-control'>
+                  <option value="">---------</option>
+
+                  <option value="Visa">Visa</option>
+
+                  <option value="Mastercard">Mastercard</option>
+
+                </select>
+
+
+              </div>
+
+
+
+
+            </div>
+
+
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Buy now</button>
+            <!-- <a href="{% url 'store:payment' %}" role="button" class="btn btn-primary btn-lg btn-block" type="submit">Checkout</a> -->
+
+          </form>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4 mb-4">
+
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}
+
+
+<!-- {% block extra_scripts %}
+<script>
+var hideable_shipping_form = $('.hideable_shipping_form');
+var hideable_billing_form = $('.hideable_billing_form');
+
+var use_default_shipping = document.querySelector("input[name=use_default_shipping]");
+var use_default_billing = document.querySelector("input[name=use_default_billing]");
+
+use_default_shipping.addEventListener('change', function() {
+if (this.checked) {
+  hideable_shipping_form.hide();
+} else {
+  hideable_shipping_form.show();
+}
+})
+
+use_default_billing.addEventListener('change', function() {
+if (this.checked) {
+  hideable_billing_form.hide();
+} else {
+  hideable_billing_form.show();
+}
+})
+
+</script>
+{% endblock extra_scripts %} -->
