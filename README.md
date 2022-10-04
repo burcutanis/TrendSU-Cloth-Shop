@@ -1,6 +1,7 @@
 # TrendSU-Cloth-Shop
-## A full stack application with Django and Bootstrap
 ## CS308 Software Engineering course project in Sabancı University
+
+### A full stack application with Django and Bootstrap
 
 This is a women cloth shop application that presents a number of products in
 categories and let users select and add the desired product/products to the shopping
